@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+/*HTML TAGS */
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+
+}
+body, html {
+  cursor: none;
+}
+
+html a:hover{
+  cursor: none;
+}
+body {
+  font-family: 'Oswald', sans-serif;
+  margin: 0;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding-top: 90px;
+
+}
+/*HEADER*/
+.jonnyheader{
+  text-decoration: none;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  padding-top: 10px;
+}
+
+iframe {
+  padding-top: 10px;
+}
+
+/*Custom Cursor for GUN */
+.custom-cursor {
+  position: absolute;
+  pointer-events: none;
+  width: 32px;
+  height: 32px;
+  background-image: url("cursor.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 9999;
+}
+
+/*Custom Navbar */
+.navbar {
+  background-color: black;
+  color: white;
+  padding: 9px;
+  margin: -10px;
+  margin-bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    position: relative;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+.navbar li {
+  margin-right: 20px;
+}
+
+.navbar a {
+  color: grey;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px;
+  transition: background-color 0.5s ease;
+}
+
+.navbar a:hover {
+  background-color: white;
+  cursor: none;
+}
+
+[data-cart-container] {
+  position: fixed;
+  top: 55px;
+  right: calc(50% - 500px);
+    z-index: 1001;
+}
+
+/*JOHN WICK*/
+.title {
+  text-align: center;
+  color: white;
+  margin: 0px;
+  padding-right: 0px;
+  padding-bottom: 20px;
+  background-color: black;
+}
+
+header {
+  grid-area: header;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: black;
+}
+
+section[aria-label="Newest Photo's"] {
+  grid-area: photos;
+}
+
+h4 {
+  grid-area: info;
+}
+/*Animation*/
+p {
+  grid-area: content;
+  opacity: 0;
+  animation: tekst 5s forwards;
+}
+@keyframes tekst {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+    }
+
+/*carousel*/
+.carousel {
+  width: 100vw;
+  height: 90vh;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+
+}
+
+.carousel > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 200ms opacity ease-in-out;
+  transition-delay: 200ms
+}
+
+.slide > img {
+  width: 100%;
+  max-height: 90vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slide[data-active] {
+  opacity: 1;
+  z-index: 1;
+  padding: 0px;
+  margin: 0px
+}
+
+i {
+  font-size: 20px;
+  color: darkgrey;
+}
+
+.carousel-button {
+  position: absolute;
+  z-index: 2;
+  background: none;
+  border: none;
+  font-size: 4rem;
+  top: 50%;
+  transform: translateY(-70%);
+  color: white;
+  cursor: pointer;
+  border-radius: .25rem;
+  padding: 0 .5rem;
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+  color: rgba(0, 255, 255, 1);
+}
+
+
+.carousel-button.prev {
+  left: 1rem;
+}
+
+.carousel-button.next {
+  right: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .carousel-button {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .carousel-button {
+    font-size: 1.5rem;
+  }
+}
+
+
+/*Merch Story Merch.index*/
+.product-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 320px;
+  padding: 1rem;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid gray;
+  padding: 1rem;
+  background-color: white;
+  color: black;
+  width: 200px;
+  margin: 1rem;
+}
+
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+
+.product button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.cart {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-counter {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 14px;
+}
+
+.cart-popup {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 300px;
+  background-color: white;
+  border: 1px solid gray;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-popup ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cart-popup li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.cart-popup button {
+  display: block;
+  width: 100%;
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+button {
+  background-color: grey;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  padding: 12px 28px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 0px 0;
+}
+
+
